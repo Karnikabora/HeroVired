@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        background-color: darkgray;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: medium;
+        padding: 20px;
+        text-align: center;
+    }
+    #login{
+        background-color: bisque;
+        border: 2px solid black;
+        padding: 20px;
+        margin: 0 25% 30%;  
+    }
+    #first{
+        font-size: larger;
+        background-color: burlywood;
+        padding: 10px;
+        margin: 0% 0%;
+        
+    }
+    .button {
+  position: relative;
+  padding: 8px 16px;
+  background: lightgray;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.button:active {
+  background: grey;
+}
+
+.button__text {
+  font: bold 20px "Quicksand", san-serif;
+  color: #ffffff;
+  transition: all 0.2s;
+}
+
+.button--loading .button__text {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.button--loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 4px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: button-loading-spinner 1s ease infinite;
+}
+
+#connect{
+  display: none;
+}
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+</style>
+<body>
+<form id="login">
+    <!-- <fieldset> -->
+        <legend id="first"><strong>New User? Register here:</strong></legend><br><br>
+        <label for="username">User Name</label>
+        <input type="text" name="text" placeholder="Enter user id"><br><br>
+        <label for="email">Email ID:</label>
+        <input type="email" name="email" placeholder="Enter email id"><br><br>
+        <label for="pw">Password:</label>
+        <input type="password" name="pw" placeholder="Enter password"><br><br>
+          
+    <!-- </fieldset> -->
+    <button type="button" class="button" onclick="myFunction()">
+        <span class="button__text">Submit</span>
+    </button>
+    <p id="connect">Connecting to network</p>
+    <br><br>
+    <input type="radio">Keep me Logged in <br><br>
+    
+    <span class="Login">Already Registered?<a href="#">Log in here</a></span>
+</form>
+<script>
+  function myFunction() {
+    var element = document.querySelector("button");
+    element.classList.toggle("button--loading");
+    
+    var p = document.getElementById("connect");
+    p.style.display = "block";  	
+  }
+  </script>
+</body>
+</html>
